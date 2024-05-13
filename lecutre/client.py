@@ -16,7 +16,16 @@ with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
         #     sentBytes += tempBytes
 
         # same as above
-        sock.sendall(inStr.encode())
+        sock.send(inStr.encode())
 
         recvBuffer = sock.recv(1024)
         print(f"Receved from server: {recvBuffer.decode()}")
+
+
+# udp
+# with socket.socket(socket.AF_INET, socket.SOCK_DGRAM) as sock:
+#     sock.connect((HOST, PORT))
+
+#     while True:
+#         inStr = input("What do you want to send? ")
+#         sock.send(inStr.encode())
